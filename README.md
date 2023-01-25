@@ -25,4 +25,9 @@
     * Styles.css
         * Adds formatting to 5-day forecast and caeds 
 * One Javascript Page
+   * Contains: 
+        * Variables, including array
+        * Event listeners
+        * For each loop
+        * Local Storage set and get 
 
