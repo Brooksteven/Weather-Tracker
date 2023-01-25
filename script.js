@@ -1,30 +1,22 @@
 // Variables 
 var searchButton = $(".searchButton");
-
 var apiKey = "b8ecb570e32c2e5042581abd004b71bb";
-
 // Forloop for persisting the data onto HMTL page
 for (var i = 0; i < localStorage.length; i++) {
-
     var city = localStorage.getItem(i);
     // console.log(localStorage.getItem("City"));
     var cityName = $(".list-group").addClass("list-group-item");
-
     cityName.append("<li>" + city + "</li>");
 }
 // Key count for local storage 
 var keyCount = 0;
 // Search button click event
 searchButton.click(function () {
-
     var searchInput = $(".searchInput").val();
-
     // Variable for current weather working 
     var urlCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&Appid=" + apiKey + "&units=imperial";
     // Variable for 5 day forecast working
     var urlFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&Appid=" + apiKey + "&units=imperial";
-
-
     if (searchInput == "") {
         console.log(searchInput);
     } else {
@@ -39,10 +31,6 @@ searchButton.click(function () {
             // Local storage
             var local = localStorage.setItem(keyCount, response.name);
             keyCount = keyCount + 1;
-            
-           
-          
-
             // Start Current Weather append 
             var currentCard = $(".currentCard").append("<div>").addClass("card-body");
             currentCard.empty();
@@ -80,7 +68,6 @@ searchButton.click(function () {
             });
 
         });
-
         // Start call for 5-day forecast 
         $.ajax({
             url: urlFiveDay,
@@ -97,10 +84,7 @@ searchButton.click(function () {
                 FiveDayTimeUTC1 = FiveDayTimeUTC1.toLocaleDateString("en-US");
 
                 fiveDayDiv.append("<div class=fiveDayColor>" + "<p>" + FiveDayTimeUTC1 + "</p>" + `<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">` + "<p>" + "Temperature: " + response.list[i].main.temp + "</p>" + "<p>" + "Humidity: " + response.list[i].main.humidity + "%" + "</p>" + "</div>");
-
-
             })
-
         });
     }
 });
