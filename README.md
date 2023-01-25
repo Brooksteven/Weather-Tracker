@@ -31,3 +31,7 @@
         * For each loop
         * Local Storage set and get 
 
+## Author
+
+* **Brooklynn Stevenson** - *Initial work* - [Git Hub Profile](https://github.com/Brooksteven)
+
